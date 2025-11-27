@@ -3,6 +3,8 @@ package com.anaproj.bar.modelo;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.anaproj.bar.factory.Produto;
+
 public enum Estoque {
     INSTANCIA;
 

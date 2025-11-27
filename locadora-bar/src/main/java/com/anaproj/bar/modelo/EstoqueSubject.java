@@ -3,6 +3,8 @@ package com.anaproj.bar.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.anaproj.bar.factory.Produto;
+
 public class EstoqueSubject {
     private final List<ObservadorEstoque> observadores = new ArrayList<>();
 

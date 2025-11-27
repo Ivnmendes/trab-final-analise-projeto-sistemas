@@ -1,5 +1,7 @@
 package com.anaproj.bar.modelo;
 
+import com.anaproj.bar.factory.Produto;
+
 public class DescontoUniversitario implements EstrategiaPreco {
     @Override
     public double calcular(Produto produto) {

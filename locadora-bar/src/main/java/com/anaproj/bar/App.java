@@ -1,12 +1,12 @@
 package com.anaproj.bar;
 
-import com.anaproj.bar.modelo.Agua;
+import com.anaproj.bar.factory.Agua;
+import com.anaproj.bar.factory.Cerveja;
+import com.anaproj.bar.factory.Cigarro;
+import com.anaproj.bar.factory.Produto;
+import com.anaproj.bar.factory.Whisky;
 import com.anaproj.bar.modelo.Caixa;
-import com.anaproj.bar.modelo.Cerveja;
-import com.anaproj.bar.modelo.Cigarro;
 import com.anaproj.bar.modelo.DescontoUniversitario;
-import com.anaproj.bar.modelo.Produto;
-import com.anaproj.bar.modelo.Whisky;
 import com.anaproj.bar.modelo.Estoque;
 import com.anaproj.bar.modelo.Gerente;
 import com.anaproj.bar.modelo.HappyHour;

@@ -1,5 +1,7 @@
 package com.anaproj.bar.modelo;
 
+import com.anaproj.bar.factory.Produto;
+
 public class Caixa {
     private EstrategiaPreco estrategia;
 
