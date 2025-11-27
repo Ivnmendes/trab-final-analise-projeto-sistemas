@@ -1,4 +1,4 @@
-package com.anaproj.bar.modelo;
+package com.anaproj.bar.observer;
 
 import com.anaproj.bar.factory.Produto;
 

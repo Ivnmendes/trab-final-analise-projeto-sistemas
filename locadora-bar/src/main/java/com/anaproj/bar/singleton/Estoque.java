@@ -1,9 +1,11 @@
-package com.anaproj.bar.modelo;
+package com.anaproj.bar.singleton;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import com.anaproj.bar.factory.Produto;
+import com.anaproj.bar.observer.EstoqueSubject;
+import com.anaproj.bar.observer.ObservadorEstoque;
 
 public enum Estoque {
     INSTANCIA;

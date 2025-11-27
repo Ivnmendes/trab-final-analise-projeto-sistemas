@@ -5,12 +5,12 @@ import com.anaproj.bar.factory.Cerveja;
 import com.anaproj.bar.factory.Cigarro;
 import com.anaproj.bar.factory.Produto;
 import com.anaproj.bar.factory.Whisky;
-import com.anaproj.bar.modelo.Caixa;
-import com.anaproj.bar.modelo.DescontoUniversitario;
-import com.anaproj.bar.modelo.Estoque;
-import com.anaproj.bar.modelo.Gerente;
-import com.anaproj.bar.modelo.HappyHour;
-import com.anaproj.bar.modelo.PrecoNormal;
+import com.anaproj.bar.observer.Gerente;
+import com.anaproj.bar.singleton.Estoque;
+import com.anaproj.bar.strategy.Caixa;
+import com.anaproj.bar.strategy.DescontoUniversitario;
+import com.anaproj.bar.strategy.HappyHour;
+import com.anaproj.bar.strategy.PrecoNormal;
 
 public class App {
     public static void main(String[] args) {

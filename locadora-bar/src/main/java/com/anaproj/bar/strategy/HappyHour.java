@@ -1,4 +1,4 @@
-package com.anaproj.bar.modelo;
+package com.anaproj.bar.strategy;
 
 import com.anaproj.bar.factory.Cigarro;
 import com.anaproj.bar.factory.Produto;

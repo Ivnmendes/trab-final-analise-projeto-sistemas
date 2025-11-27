@@ -1,4 +1,4 @@
-package com.anaproj.bar.modelo;
+package com.anaproj.bar.observer;
 
 import java.util.ArrayList;
 import java.util.List;
