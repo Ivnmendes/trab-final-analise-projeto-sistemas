@@ -1,7 +1,3 @@
-Com certeza. Abaixo está o código fonte cru (raw) do Markdown.
-
-Você pode copiar o conteúdo dentro do bloco abaixo e colar diretamente no seu arquivo `.md` (README, Obsidian, Notion, etc.).
-
 ````markdown
 # Padrões de Projeto - Simulação de Bar (Versão Corrigida)
 
