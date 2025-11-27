@@ -1,12 +1,16 @@
 package com.anaproj.bar;
 
 import com.anaproj.bar.modelo.Agua;
+import com.anaproj.bar.modelo.Caixa;
 import com.anaproj.bar.modelo.Cerveja;
 import com.anaproj.bar.modelo.Cigarro;
+import com.anaproj.bar.modelo.DescontoUniversitario;
 import com.anaproj.bar.modelo.Produto;
 import com.anaproj.bar.modelo.Whisky;
 import com.anaproj.bar.modelo.Estoque;
 import com.anaproj.bar.modelo.Gerente;
+import com.anaproj.bar.modelo.HappyHour;
+import com.anaproj.bar.modelo.PrecoNormal;
 
 public class App {
     public static void main(String[] args) {
@@ -43,5 +47,25 @@ public class App {
 
         System.out.println("\n>> Vendendo 2 Jack Daniels (Estoque vai para 3 - ALERTA)");
         estoque.darBaixa(jackDaniels, 2); 
+
+        System.out.println("\n--- Testando Strategy (Caixa) ---");
+
+        Caixa caixa = new Caixa(new PrecoNormal());
+        
+        System.out.println("Cenário 1: Cliente comprando Whisky em horário normal.");
+        caixa.cobrar(jackDaniels);
+
+        System.out.println("\n>> O gerente ativou o Happy Hour!");
+        caixa.setEstrategia(new HappyHour());
+        System.out.println("\n>> Cenário: Happy Hour (Whisky deve ter 50% off)");
+        caixa.cobrar(jackDaniels); 
+        System.out.println("\n>> Cenário: Happy Hour (Cigarro deve ter preço cheio - Exceção)");
+        caixa.cobrar(marlboro);    
+
+        System.out.println("\n>> O gerente ativou o Desconto Universitário!");
+        caixa.setEstrategia(new DescontoUniversitario());
+        System.out.println("\n>> Cenário: Cliente universitário (20% off em tudo)");
+        caixa.cobrar(jackDaniels);
+        caixa.cobrar(marlboro);
     }
 }
