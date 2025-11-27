@@ -1,4 +1,3 @@
-````markdown
 # Padrões de Projeto - Simulação de Bar (Versão Corrigida)
 
 ## 📋 Índice
@@ -315,4 +314,3 @@ estoque.darBaixa("Vodka", 3);
 | **DECORATOR** | Estrutural | Explosão de subclasses para combinações | "Embrulhar" objetos em runtime |
 | **STRATEGY** | Comportamental | Excesso de condicionais de regras | Algoritmos intercambiáveis (injeção) |
 | **OBSERVER** | Comportamental | Componentes precisam monitorar outros | Assinatura de eventos (Publish/Subscribe) |
-````
