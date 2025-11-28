@@ -1,21 +1,19 @@
 package com.anaproj.bar.factory;
 
-public class Whisky implements Bebida {
-    private final String id;
+/**
+ * Produto concreto: Whisky
+ * Implementa a interface Produto com seus dados específicos.
+ */
+public class Whisky implements Produto {
     private final String descricao;
     private final double preco;
 
-    public Whisky(String id, String descricao, double preco) {
+    public Whisky(String descricao, double preco) {
         if (preco < 0) {
             throw new IllegalArgumentException("Preço não pode ser negativo");
         }
-        this.id = id;
         this.descricao = descricao;
         this.preco = preco;
-    }
-
-    public String getId() {
-        return this.id;
     }
 
     @Override
@@ -30,6 +28,6 @@ public class Whisky implements Bebida {
 
     @Override
     public String toString() {
-        return String.format("Whisky{id='%s', descricao='%s', preço=R$%.2f}", id, descricao, preco);
+        return String.format("Whisky{descricao='%s', preço=R$%.2f}", descricao, preco);
     }
 }

@@ -1,9 +1,12 @@
 package com.anaproj.bar.factory;
 
-public class Agua implements Bebida {
+/**
+ * Produto concreto: Água
+ * Implementa a interface Produto com seus dados específicos.
+ */
+public class Agua implements Produto {
     private static final String DESCRICAO = "Água Filtrada";
     private static final double PRECO = 2.0;
-
 
     @Override
     public String getDescricao() {

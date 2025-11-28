@@ -2,15 +2,15 @@ package com.anaproj.bar;
 
 import com.anaproj.bar.decorator.Gelo;
 import com.anaproj.bar.decorator.Limao;
-import com.anaproj.bar.factory.Agua;
-import com.anaproj.bar.factory.Cerveja;
-import com.anaproj.bar.factory.Cigarro;
+import com.anaproj.bar.factory.Bebida;
+import com.anaproj.bar.factory.CervejaCriadora;
+import com.anaproj.bar.factory.CigarroCriadora;
 import com.anaproj.bar.factory.Produto;
-import com.anaproj.bar.factory.Whisky;
+import com.anaproj.bar.factory.ProdutoCriadora;
+import com.anaproj.bar.factory.WhiskyCriadora;
 import com.anaproj.bar.observer.Gerente;
 import com.anaproj.bar.singleton.Estoque;
 import com.anaproj.bar.strategy.Caixa;
-import com.anaproj.bar.strategy.DescontoUniversitario;
 import com.anaproj.bar.strategy.HappyHour;
 import com.anaproj.bar.strategy.PrecoNormal;
 
@@ -18,13 +18,20 @@ public class App {
     public static void main(String[] args) {
         System.out.println("=== SISTEMA LOCADORA BAR - PADRÕES DE PROJETO ===");
         
-        System.out.println("\n--- 1. Instanciação (Factory/Simples) ---");
-        Produto heineken = new Cerveja("cerveja", "Cerveja Heineken", 7.50);
-        Produto jackDaniels = new Whisky("whisky", "Whisky Jack Daniel's", 110.00);
-        Produto marlboro = new Cigarro("cigarro", "Cigarro Marlboro", 12.00);
+        System.out.println("\n--- 1. Instanciação (Factory Method) ---");
+        // Usando o Factory Method Pattern
+        Bebida cervejaCriadora = new CervejaCriadora("Cerveja Heineken", 7.50);
+        Bebida whiskyCriadora = new WhiskyCriadora("Whisky Jack Daniel's", 110.00);
+        ProdutoCriadora cigarroCriadora = new CigarroCriadora("Cigarro Marlboro", 12.00);
+        
+        // Criar os produtos através do método fábrica
+        Produto heineken = cervejaCriadora.criar();
+        Produto jackDaniels = whiskyCriadora.criar();
+        Produto marlboro = cigarroCriadora.criar();
         
         System.out.println("Criado: " + heineken.getDescricao() + " | R$ " + heineken.getPreco());
         System.out.println("Criado: " + jackDaniels.getDescricao() + " | R$ " + jackDaniels.getPreco());
+        System.out.println("Criado: " + marlboro.getDescricao() + " | R$ " + marlboro.getPreco());
 
         System.out.println("\n--- 2. Estoque (Singleton) & Notificação (Observer) ---");
         Estoque estoque = Estoque.INSTANCIA;
@@ -42,7 +49,8 @@ public class App {
 
         System.out.println("\n--- 3. Personalização de Bebidas (Decorator) ---");
         
-        Produto meuWhisky = new Whisky("whisky", "Old Parr", 150.00);
+        Bebida whiskyComplexoCriadora = new WhiskyCriadora("Old Parr", 150.00);
+        Produto meuWhisky = whiskyComplexoCriadora.criar();
         System.out.println("Puro: " + meuWhisky.getDescricao() + " = R$ " + meuWhisky.getPreco());
         
         Produto whiskyComGelo = new Gelo(meuWhisky);
@@ -65,5 +73,9 @@ public class App {
         
         System.out.println(">> Cobrando Cigarro no Happy Hour (Sem desconto):");
         caixa.cobrar(marlboro);
+
+        System.out.println("\n--- 5. Demonstração do método preparar() das factories ---");
+        System.out.println(cervejaCriadora.preparar());
+        System.out.println(whiskyCriadora.preparar());
     }
 }

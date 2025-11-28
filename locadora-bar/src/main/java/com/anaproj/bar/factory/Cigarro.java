@@ -1,5 +1,9 @@
 package com.anaproj.bar.factory;
 
+/**
+ * Produto concreto: Cigarro
+ * Implementa a interface Produto com seus dados específicos.
+ */
 public class Cigarro implements Produto {
     private final String descricao;
     private final double preco;
@@ -11,7 +15,6 @@ public class Cigarro implements Produto {
         this.descricao = descricao;
         this.preco = preco;
     }
-
 
     @Override
     public String getDescricao() {

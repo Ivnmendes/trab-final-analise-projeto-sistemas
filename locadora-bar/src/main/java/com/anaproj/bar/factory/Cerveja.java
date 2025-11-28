@@ -1,6 +1,10 @@
 package com.anaproj.bar.factory;
 
-public class Cerveja implements Bebida {
+/**
+ * Produto concreto: Cerveja
+ * Implementa a interface Produto com seus dados específicos.
+ */
+public class Cerveja implements Produto {
     private final String descricao;
     private final double preco;
 
