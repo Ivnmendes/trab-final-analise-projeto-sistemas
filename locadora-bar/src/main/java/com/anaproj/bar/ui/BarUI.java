@@ -33,6 +33,7 @@ public class BarUI {
             System.out.println("3. Ver Estoque");
             System.out.println("4. Fechamento de Caixa");
             System.out.println("5. Repor Estoque");
+            System.out.println("6. Registrar Perda/Quebra");
             System.out.println("0. Sair");
             System.out.print("Escolha: ");
 
@@ -54,6 +55,9 @@ public class BarUI {
                 case 5:
                     reporEstoque();
                     break;
+                case 6:
+                    registrarPerda();
+                    break;
                 case 0:
                     rodando = false;
                     System.out.println("Encerrando...");
@@ -61,6 +65,38 @@ public class BarUI {
                 default:
                     System.out.println("Opção inválida!");
             }
+        }
+    }
+
+    private void registrarPerda() {
+        System.out.println("\n--- REGISTRAR PERDA/QUEBRA ---");
+        System.out.println("1. Água");
+        System.out.println("2. Cerveja");
+        System.out.println("3. Whisky");
+        System.out.println("4. Cigarro");
+        System.out.print("Selecione o produto avariado: ");
+
+        int selecao = lerInteiro();
+        Produto produto = null;
+
+        switch (selecao) {
+            case 1: produto = fabricaAgua.criar(); break;
+            case 2: produto = fabricaCerveja.criar(); break;
+            case 3: produto = fabricaWhisky.criar(); break;
+            case 4: produto = fabricaCigarro.criar(); break;
+            default:
+                System.out.println("Produto inválido.");
+                return;
+        }
+
+        System.out.print("Quantidade perdida: ");
+        int qtd = lerInteiro();
+
+        if (qtd > 0) {
+            Estoque.INSTANCIA.darBaixa(produto, qtd);
+            System.out.println(">> Perda registrada. O estoque foi atualizado.");
+        } else {
+            System.out.println("Quantidade inválida.");
         }
     }
 
